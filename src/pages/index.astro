@@ -1,0 +1,76 @@
+---
+import { BaseLayout } from "../layouts";
+import {
+  CarouselProducts,
+  Banner,
+  Testimonials,
+  MapLocation,
+  SectionWrapper,
+  Title,
+} from "../components";
+import FilterProducts from "../components/home/FilterProducts.astro";
+---
+
+<BaseLayout title="Hankook Alvillantas">
+  <main>
+    <div class="banner-wrapper">
+      <img src="/public/initial-banner.webp" alt="banner hankook alvillantas" />
+      <div class="text-absolute-item">
+        <Title title="Busca y encuentra">tus productos</Title>
+      </div>
+      <FilterProducts />
+    </div>
+
+    <SectionWrapper>
+      <CarouselProducts />
+    </SectionWrapper>
+
+    <SectionWrapper>
+      <Banner />
+      <Testimonials />
+    </SectionWrapper>
+
+    <SectionWrapper>
+      <MapLocation />
+    </SectionWrapper>
+  </main>
+</BaseLayout>
+
+<style lang="scss">
+  //MOBILE AND TABLET
+  main {
+    .banner-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      img {
+        width: 100%;
+        height: 40vh;
+        object-fit: cover;
+      }
+      .text-absolute-item {
+        margin: 0 auto;
+        padding: 2em 1em;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #fff;
+        text-transform: uppercase;
+        font-style: italic;
+      }
+    }
+  }
+
+  //DESKTOP
+  @media (min-width: 920px) {
+    main {
+      .banner-wrapper {
+        img {
+          width: 100%;
+          height: 70vh;
+        }
+      }
+    }
+  }
+</style>

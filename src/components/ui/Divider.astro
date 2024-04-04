@@ -1,0 +1,23 @@
+---
+interface Props {
+  fullScreen?: boolean;
+}
+
+const { fullScreen = false } = Astro.props;
+---
+
+<hr class={`divider ${fullScreen && "full-screen"}`} />
+
+<style lang="scss">
+  hr {
+    width: 80%;
+    background: #fc4c09;
+    height: 5px;
+    margin: 1em auto;
+    border: none;
+  }
+
+  .full-screen {
+    width: 100%;
+  }
+</style>

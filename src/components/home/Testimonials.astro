@@ -1,0 +1,81 @@
+---
+
+---
+
+<section class="testimonials">
+  <h2 class="testimonials__title">testimonios</h2>
+  <span class="testimonials__subtitle">Lo que dicen nuestros<br />clientes</span>
+  <article class="testimony">
+    <p class="testimony__description">
+      La experiencia que viví en Alvillantas fue totalmente diferente, ya que
+      pude ver los equipos que utilizaron con mi vehículo y quedé realmente
+      sorprendido por el trabajo realizado, además que la atención fue de
+      primera, totalmente satisfecho. Los mejores precios de llantas.
+    </p>
+    <section class="testimony__profile">
+      <div class="testimony__img">
+        <img src="../../../public/images/cliente.webp" alt="" />
+      </div>
+      <p class="testimony__name">Demetrio Castillo</p>
+      <p class="testimony__role">Cliente</p>
+    </section>
+  </article>
+</section>
+
+<style lang="scss">
+  .testimonials{
+    padding: 4rem 0;
+    text-align: center;
+    &__title{
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #fc4c09;
+      margin: 0 0 .625rem;
+    }
+    &__subtitle{
+      font-size: 2.2rem;
+      font-style: italic;
+      font-weight: bold;
+      line-height: 1;
+    }
+  }
+  .testimony{
+    max-width: 450px;
+    margin: 0 auto;
+    &__description{
+      font-style: italic;
+      position: relative;
+      margin: 3rem 0;
+      &::before{
+        content: "";
+        width: 20%;
+        height: 1px;
+        border-radius: 50%;
+        background-color: #fc4c09;
+        position: absolute;
+        left: 50%;
+        bottom: -10px;
+        transform: translateX(-50%);
+      }
+    }
+    &__img{
+      width: 40px;
+      height: 40px;
+      margin: 30px auto 5px;
+    }
+    &__img img{
+      width: 100%;
+    }
+    &__profile{
+      font-size: 0.625rem;
+    }
+    &__name{
+      color: #fc4c09;
+      font-weight: bold;
+    }
+    &__role{
+      text-transform: uppercase;
+    }
+  }
+</style>

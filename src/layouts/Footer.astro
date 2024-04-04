@@ -1,0 +1,88 @@
+---
+import { IconItem, Divider } from "../components";
+---
+
+<footer class="footer">
+  <Divider />
+
+  <img src="/public/logo.webp" alt="logo" />
+
+  <span class="slogan-description">
+    Te brindamos una atención empática y profesional. Garantizamos nuestros
+    productos y servicios: Llantas, aros y mantenimiento. Las mejores llantas de
+    auto.</span
+  >
+
+  <section class="icons-list">
+    <IconItem title="Contáctanos" span="967787227" />
+    <IconItem
+      title="Ubicación"
+      span="Av. La Marina Nro. 3410"
+      path="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"
+    />
+    <IconItem
+      title="Email"
+      span="ventas3@alvillantas.com"
+      path="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"
+    />
+    <IconItem
+      title="Lunes-viernes"
+      span="07:00 - 22:00"
+      path="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"
+    />
+  </section>
+
+  <div class="footer__bottom">
+    <p>
+      Copyrights © 2023 Alvillantas Todos los derechos reservados -
+      Desarrollado por <a href="#" class="color__primary">Agencia Servitec</a>
+    </p>
+  </div>
+</footer>
+
+<style lang="scss">
+  .footer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2em;
+
+    img {
+      width: 10em;
+      margin: 1.2em auto;
+    }
+    .slogan-description {
+      text-align: center;
+      color: #ffffff8c;
+      padding: 1em;
+    }
+    .icons-list {
+      padding: 2em 1.5em;
+      gap: 1em;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(12em, auto));
+      width: 100%;
+    }
+    &__bottom {
+      background: #000;
+      width: 100%;
+      padding: 1em;
+
+      p {
+        text-align: center;
+        font-size: 0.9em;
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 500px) {
+    footer {
+      .slogan-description {
+        max-width: 50%;
+      }
+    }
+  }
+</style>

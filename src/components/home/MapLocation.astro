@@ -1,0 +1,33 @@
+---
+import { Title } from "../../components/";
+---
+
+<section>
+	<Title title="Nuestra">Ubicación</Title>
+
+	<article>
+		<iframe
+			src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d487.6955895430354!2d-77.10214!3d-12.073442!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c962092b3607%3A0xa201755524350c62!2sALVILLANTAS%20E.I.R.L!5e0!3m2!1ses!2sus!4v1698439514371!5m2!1ses!2sus"
+			allowfullscreen=""
+			loading="lazy"
+			referrerpolicy="no-referrer-when-downgrade"></iframe>
+	</article>
+</section>
+
+<style lang="scss">
+	section {
+		padding: 2em 1em;
+		article {
+			max-width: 750px;
+			margin: auto;
+
+			iframe {
+				border: 5px solid #fc4c09;
+				border-radius: 1em;
+				width: 100%;
+				max-width: 750px;
+				height: 410px;
+			}
+		}
+	}
+</style>

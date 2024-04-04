@@ -1,0 +1,59 @@
+---
+import IconFontAwesome from "./IconFontAwesome.astro";
+
+interface Props {
+  path?: string;
+  title: string;
+  span: string;
+  href?: string;
+  isAnchor?: boolean;
+}
+
+const {
+  title = "967787227",
+  path,
+  span = "Contáctanos",
+  href = "#",
+  isAnchor = false,
+} = Astro.props;
+---
+
+<div class="item-icon">
+  <IconFontAwesome path={path} width="2.5em" color="#fc4c09" />
+
+  <h2>{title}</h2>
+  {
+    isAnchor ? (
+      <a href={href} target="_blank">
+        {span}
+      </a>
+    ) : (
+      <span>{span}</span>
+    )
+  }
+</div>
+
+<style lang="scss">
+  .item-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+
+    h2 {
+      padding-top: 15px;
+      color: #fff;
+      padding-bottom: 10px;
+      font-size: 1em;
+    }
+
+    a,
+    span {
+      color: #fc4c09;
+      font-weight: 600;
+      font-size: 1.2em;
+      text-decoration: none;
+    }
+  }
+</style>

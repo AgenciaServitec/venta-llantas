@@ -1,0 +1,36 @@
+---
+import CardProduct from "../ui/CardProduct.astro";
+import Button from "../ui/Button.astro";
+---
+
+<section>
+  <div class="card-list">
+    <CardProduct />
+    <CardProduct />
+    <CardProduct />
+  </div>
+
+  <div class="item-button">
+    <Button type="tertiary">Cotizar otro</Button>
+  </div>
+</section>
+
+<style lang="scss">
+  section {
+    padding: 2em 1em;
+
+    .card-list {
+      margin: auto;
+      max-width: 1280px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+      gap: 1em;
+    }
+
+    .item-button {
+      margin: 2em 0;
+      display: flex;
+      place-content: center;
+    }
+  }
+</style>

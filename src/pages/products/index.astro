@@ -1,0 +1,42 @@
+---
+import { BaseLayout } from "../../layouts";
+import { Button, CardProduct, Title } from "../../components";
+---
+
+<BaseLayout title="Productos">
+  <main>
+    <Title title="NUESTROS">PRODUCTOS</Title>
+    <section class="products">
+      {
+        Array.from(Array(27).keys()).map((n, index) => (
+          <CardProduct key={index} />
+        ))
+      }
+    </section>
+    <section class="quoteButton">
+      <Button type="tertiary">Cotizar otro</Button>
+    </section>
+  </main>
+</BaseLayout>
+
+<style lang="scss">
+  main {
+    width: 100%;
+    padding: 12em 2em 2em 2em;
+  }
+  .products {
+    max-width: 1280px;
+    margin: auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2em;
+  }
+  .quoteButton {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 6em 0 2em;
+  }
+</style>
