@@ -1,6 +1,6 @@
 import { useVisibleDrawer } from "../hooks/index.js";
 
-const MenuButton = ({ children }) => {
+const Drawer = ({ children }) => {
   const { visibleDrawer, showDrawer, hiddenDrawer } = useVisibleDrawer();
 
   return (
@@ -15,7 +15,7 @@ const MenuButton = ({ children }) => {
       <section
         style={{
           position: "fixed",
-          zIndex: "100",
+          zIndex: "300",
           width: "100vw",
           height: "100vh",
           top: "0",
@@ -53,7 +53,7 @@ const MenuButton = ({ children }) => {
   );
 };
 
-export default MenuButton;
+export default Drawer;
 
 const ItemLi = ({ text, path = "/", onHiddenDrawer }) => (
   <li

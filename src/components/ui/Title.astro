@@ -1,40 +1,46 @@
 ---
 interface Props {
-	title: string;
+  title: string;
+  withMargin: boolean;
 }
 
-const { title } = Astro.props;
+const { title, withMargin = true } = Astro.props;
 ---
 
-<h2>
-	{title}
-	<span>
-		<slot />
-	</span>
+<h2 class={withMargin ? "with-margin-b" : "no-margin-b"}>
+  {title}
+  <span>
+    <slot />
+  </span>
 </h2>
 
 <style lang="scss">
+  .with-margin-b {
+    margin-bottom: 1.2em;
+  }
+  .no-margin-b {
+    margin-bottom: 0;
+  }
   h2 {
     color: #fff;
     font-size: 3em;
     font-style: italic;
     text-align: center;
-    line-height: 0.85;
-    margin-bottom: 1.2em;
     text-transform: uppercase;
+    span {
+      margin-top: 0.1em;
+      line-height: 0.85;
+      color: #f40f0f;
+      font-size: 1.5em;
+      display: block;
+    }
 
-		@media (max-width: 576px) {
-			font-size: 2em;
-		}
+    @media (max-width: 576px) {
+      font-size: 2em;
+    }
 
-		@media (max-width: 375px) {
-			font-size: 1.5em;
-		}
-
-		span {
-			color: #fc4c09;
-			font-size: 1.5em;
-			display: block;
-		}
-	}
+    @media (max-width: 375px) {
+      font-size: 1.5em;
+    }
+  }
 </style>

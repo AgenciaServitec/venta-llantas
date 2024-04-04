@@ -9,7 +9,7 @@ export const ButtonJsx = ({ children, type = "button", ...props }) => (
       border: "none",
       fontWeight: "700",
       cursor: "pointer",
-      backgroundColor: " #fe4e02",
+      backgroundColor: " #f40f0f",
       color: "#fff",
       width: "100%",
       fontSize: "1.2em",

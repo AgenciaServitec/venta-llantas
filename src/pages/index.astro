@@ -7,18 +7,24 @@ import {
   MapLocation,
   SectionWrapper,
   Title,
+  Button,
 } from "../components";
-import FilterProducts from "../components/home/FilterProducts.astro";
 ---
 
 <BaseLayout title="Hankook Alvillantas">
   <main>
     <div class="banner-wrapper">
       <img src="/public/initial-banner.webp" alt="banner hankook alvillantas" />
-      <div class="text-absolute-item">
-        <Title title="Busca y encuentra">tus productos</Title>
+      <div class="wrapper-content">
+        <Title title="Tenemos las mejores" withMargin={false}>
+          llantas para tu vehiculo
+        </Title>
+        <div class="quote-wrapper">
+          <a href="/contact">
+            <Button type="tertiary">Cotizar llanta</Button>
+          </a>
+        </div>
       </div>
-      <FilterProducts />
     </div>
 
     <SectionWrapper>
@@ -40,24 +46,39 @@ import FilterProducts from "../components/home/FilterProducts.astro";
   //MOBILE AND TABLET
   main {
     .banner-wrapper {
-      position: relative;
       display: flex;
       align-items: center;
-      justify-content: start;
+      justify-content: center;
+      position: relative;
+      width: 100%;
+      min-height: 70vh;
       img {
         width: 100%;
-        height: 40vh;
+        height: 100%;
         object-fit: cover;
-      }
-      .text-absolute-item {
-        margin: 0 auto;
-        padding: 2em 1em;
         position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 100;
+      }
+      .wrapper-content {
+        width: 60%;
+        margin: auto;
         color: #fff;
         text-transform: uppercase;
-        font-style: italic;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 200;
+        .quote-wrapper {
+          padding: 2em 0 0 0;
+          a {
+            text-decoration: auto;
+          }
+        }
       }
     }
   }
