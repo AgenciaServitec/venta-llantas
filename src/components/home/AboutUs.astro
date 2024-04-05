@@ -1,0 +1,80 @@
+---
+
+---
+
+<main>
+  <section class="about-us">
+    <div class="about-us__img">
+      <img src="../../../public/images/nosotros.webp" alt="Sobre nosotros" />
+    </div>
+    <div class="about-us__text">
+      <h2 class="about-us__text-title">Sobre nosotros</h2>
+      <p class="about-us__text-description">
+        En Alvillantas, nos enorgullece ofrecer una amplia variedad de opciones
+        para asegurarnos de que encuentres el neumático perfecto para tu
+        vehículo. Cualquiera que sea su presupuesto y el tamaño de automóvil que
+        esté buscando, estamos seguros de que podemos ayudarlo a encontrar lo
+        que sea adecuado para usted.
+      </p>
+    </div>
+  </section>
+</main>
+
+<style lang="scss">
+  main {
+    width: 100%;
+    padding: 2em 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .about-us {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap-reverse;
+    gap: 2rem;
+    padding: 0 7rem;
+    @media (max-width: 1200px) {
+      padding: 0 2rem;
+    }
+    &__img {
+      max-width: 500px;
+      height: 280px;
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 15px;
+      }
+    }
+    &__text {
+      width: 35%;
+      &-title {
+        font-size: 3.5rem;
+        line-height: 1;
+        text-transform: uppercase;
+        font-style: italic;
+        color: #f40f0f;
+        margin-bottom: 1rem;
+        @media (max-width: 576px) {
+          font-size: 1.5rem;
+        }
+      }
+      &-description {
+        text-align: left;
+        font-size: 1.2rem;
+      }
+      @media (max-width: 1024px) {
+        width: 100%;
+        &-title {
+          font-size: 3rem;
+          text-align: center;
+        }
+        &-description {
+          text-align: center;
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+</style>

@@ -3,15 +3,15 @@ import { BaseLayout } from "../layouts";
 import {
   CarouselProducts,
   Banner,
-  Testimonials,
   MapLocation,
   SectionWrapper,
   Title,
   Button,
+  AboutUsComponent,
 } from "../components";
 ---
 
-<BaseLayout title="Hankook Alvillantas">
+<BaseLayout>
   <main>
     <div class="banner-wrapper">
       <img src="/public/initial-banner.webp" alt="banner hankook alvillantas" />
@@ -28,12 +28,15 @@ import {
     </div>
 
     <SectionWrapper>
+      <AboutUsComponent />
+    </SectionWrapper>
+
+    <SectionWrapper>
       <CarouselProducts />
     </SectionWrapper>
 
     <SectionWrapper>
       <Banner />
-      <Testimonials />
     </SectionWrapper>
 
     <SectionWrapper>
@@ -64,7 +67,7 @@ import {
         z-index: 100;
       }
       .wrapper-content {
-        width: 60%;
+        width: 90%;
         margin: auto;
         color: #fff;
         text-transform: uppercase;
@@ -73,6 +76,9 @@ import {
         align-items: center;
         justify-content: center;
         z-index: 200;
+        @media (min-width: 920px) {
+          width: 60%;
+        }
         .quote-wrapper {
           padding: 2em 0 0 0;
           a {

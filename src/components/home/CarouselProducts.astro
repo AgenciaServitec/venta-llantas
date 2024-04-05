@@ -1,17 +1,30 @@
 ---
 import CardProduct from "../ui/CardProduct.astro";
 import Button from "../ui/Button.astro";
+import { products } from "../../data-list";
 ---
 
 <section>
-  <div class="card-list">
-    <CardProduct />
-    <CardProduct />
-    <CardProduct />
+  <div class="wrapper-title">
+    <h2>Algunos de nuestro productos</h2>
   </div>
-
+  <div class="card-list">
+    {
+      products.map((product, index) => (
+        <CardProduct
+          key={index}
+          name={product.name}
+          model={product.model}
+          brand={product.brand}
+          imagePath={product.imagePath}
+        />
+      ))
+    }
+  </div>
   <div class="item-button">
-    <Button type="tertiary">Cotizar otro</Button>
+    <a href="/contact">
+      <Button type="tertiary">Cotizar otra llanta</Button>
+    </a>
   </div>
 </section>
 
@@ -19,18 +32,42 @@ import Button from "../ui/Button.astro";
   section {
     padding: 2em 1em;
 
+    .wrapper-title {
+      width: 70%;
+      margin: auto;
+      @media (max-width: 576px) {
+        width: 97%;
+      }
+      h2 {
+        text-align: center;
+        font-size: 3.5rem;
+        line-height: 1;
+        text-transform: uppercase;
+        font-style: italic;
+        color: #f40f0f;
+        margin-bottom: 1em;
+        @media (max-width: 576px) {
+          font-size: 2.5rem;
+        }
+      }
+    }
+
     .card-list {
       margin: auto;
       max-width: 1280px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+      grid-template-columns: repeat(auto-fit, minmax(400px, auto));
       gap: 1em;
+      justify-content: center;
     }
 
     .item-button {
       margin: 2em 0;
       display: flex;
       place-content: center;
+      a {
+        text-decoration: auto;
+      }
     }
   }
 </style>

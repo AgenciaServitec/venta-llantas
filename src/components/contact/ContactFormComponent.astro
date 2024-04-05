@@ -1,0 +1,155 @@
+---
+
+---
+
+<script>
+  const contactFormElement = document.querySelector("#btn-submit");
+  const errorMessageElement = document.querySelector("#error-message-wrapper");
+
+  const fullNameElement = document.querySelector("#fullName");
+  const emailElement = document.querySelector("#email");
+  const phoneNumberElement = document.querySelector("#phoneNumber");
+  const messageElement = document.querySelector("#message");
+
+  let messageError = "";
+
+  const reset = () => {
+    fullNameElement.value = "";
+    emailElement.value = "";
+    phoneNumberElement.value = "";
+    messageElement.value = "";
+  };
+
+  const mapContactData = (formData) => ({
+    contact: {
+      fullName: formData.fullName,
+      email: formData.email,
+      phone: {
+        countryCode: "+51",
+        number: formData.phoneNumber,
+      },
+      message: formData.message,
+      hostname: "hankookalvillantas.com",
+    },
+  });
+
+  contactFormElement.addEventListener("click", async () => {
+    const formData = {
+      fullName: fullNameElement.value,
+      email: emailElement.value,
+      phoneNumber: phoneNumberElement.value,
+      message: messageElement.value,
+    };
+
+    if (
+      formData.fullName === "" ||
+      formData.email === "" ||
+      formData.phoneNumber === ""
+    )
+      return (messageError = errorMessageElement.innerHTML =
+        `<div class="error-message" style="border-radius: 1em;
+      padding: 0.3em 1em;
+      background: rgba(236, 11, 11, 0.22);
+      width: auto;
+      margin: auto auto 0.7em auto;
+      color: #e1e1e1;
+      border: 1px solid red;">Faltan los siguiente campos: ${
+        formData.fullName === "" ? "Nombres y apellidos, " : ""
+      } ${formData.email === "" ? "Email, " : ""} ${
+        formData.phoneNumber === "" ? "Teléfono" : ""
+      }</div>`);
+
+    const contact = mapContactData(formData);
+
+    const response = await fetch(
+      `https://api-servitecsales.web.app/emails/contact`,
+      {
+        method: "POST",
+        headers: {
+          "content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(contact),
+      },
+    );
+
+    if (!response.ok) throw new Error(response.statusText);
+
+    reset();
+    window.location.href = "/success";
+  });
+</script>
+
+<div class="form-container">
+  <div id="contact-form">
+    <div class="item-wrapper">
+      <label for="fullName">Nombres y apellidos</label>
+      <input id="fullName" name="fullName" class={"error-item"} required />
+    </div>
+    <div class="item-wrapper">
+      <label for="email">Email</label>
+      <input id="email" name="email" class={"error-item"} required />
+    </div>
+    <div class="item-wrapper">
+      <label for="phoneNumber">Teléfono</label>
+      <input
+        type="number"
+        id="phoneNumber"
+        name="phoneNumber"
+        class={"error-item"}
+        required
+      />
+    </div>
+    <div class="item-wrapper">
+      <label for="message">Mensaje</label>
+      <textarea
+        id="message"
+        name="message"
+        cols="30"
+        rows="4"
+        class={"error-item"}></textarea>
+    </div>
+    <button class="btn-submit" id="btn-submit">Enviar</button>
+  </div>
+</div>
+
+<style lang="scss">
+  .form-container {
+    .item-wrapper {
+      margin-bottom: 1em;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      label {
+        font-size: 0.8em;
+        margin-bottom: 0.5em;
+      }
+      input,
+      textarea {
+        width: 100%;
+        border-radius: 0.5em;
+        font-size: 1.1em;
+        padding: 0.6em;
+        border-color: transparent;
+        outline: none;
+      }
+    }
+    .btn-submit {
+      margin: 0 auto;
+      font-size: 1.2em;
+      text-transform: upperCase;
+      font-style: italic;
+      background-color: #f40f0f;
+      color: #fff;
+      padding: 1em;
+      border-radius: 7em;
+      width: 100%;
+      border-color: transparent;
+      cursor: pointer;
+    }
+
+    .error-item {
+      border: 1px solid red;
+    }
+  }
+</style>

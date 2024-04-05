@@ -1,20 +1,29 @@
 ---
 import { BaseLayout } from "../../layouts";
 import { Button, CardProduct, Title } from "../../components";
+import { products } from "../../data-list";
 ---
 
 <BaseLayout title="Productos">
   <main>
     <Title title="NUESTROS">PRODUCTOS</Title>
-    <section class="products">
+    <section class="card-list">
       {
-        Array.from(Array(27).keys()).map((n, index) => (
-          <CardProduct key={index} />
+        products.map((product, index) => (
+          <CardProduct
+            key={index}
+            name={product.name}
+            model={product.model}
+            brand={product.brand}
+            imagePath={product.imagePath}
+          />
         ))
       }
     </section>
-    <section class="quoteButton">
-      <Button type="tertiary">Cotizar otro</Button>
+    <section class="quote-button">
+      <a href="/contact">
+        <Button type="tertiary">Cotizar otra llanta</Button>
+      </a>
     </section>
   </main>
 </BaseLayout>
@@ -24,19 +33,22 @@ import { Button, CardProduct, Title } from "../../components";
     width: 100%;
     padding: 12em 2em 2em 2em;
   }
-  .products {
-    max-width: 1280px;
+  .card-list {
     margin: auto;
-    width: 100%;
+    max-width: 1280px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 2em;
+    grid-template-columns: repeat(auto-fit, minmax(400px, auto));
+    gap: 1em;
+    justify-content: center;
   }
-  .quoteButton {
+  .quote-button {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 6em 0 2em;
+    a {
+      text-decoration: auto;
+    }
   }
 </style>

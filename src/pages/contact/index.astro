@@ -1,25 +1,33 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import ContactForm from "./ContactForm";
+import { ContactFormComponent } from "../../components";
 ---
 
 <BaseLayout>
   <main>
+    <div class="error-message-wrapper" id="error-message-wrapper"></div>
     <section>
       <span>Contacto</span>
-      <ContactForm client:load />
+      <ContactFormComponent />
     </section>
   </main>
 </BaseLayout>
 
 <style lang="scss">
   main {
-    padding: 12em 2em 2em 2em;
+    padding: 7em 2em 2em 2em;
+    .error-message-wrapper {
+      width: 60%;
+      margin: auto;
+      @media (max-width: 970px) {
+        width: 100%;
+      }
+    }
 
     section {
       background-image: url("/images/form-backgrouns.webp");
       padding: 1em 1.5em 3em 1.5em;
-      max-width: 450px;
+      max-width: 550px;
       width: 100%;
       margin: auto;
       text-align: center;
