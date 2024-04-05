@@ -33,21 +33,22 @@
     },
   });
 
-  contactFormElement.addEventListener("click", async () => {
-    const formData = {
-      fullName: fullNameElement.value,
-      email: emailElement.value,
-      phoneNumber: phoneNumberElement.value,
-      message: messageElement.value,
-    };
+  contactFormElement &&
+    contactFormElement.addEventListener("click", async () => {
+      const formData = {
+        fullName: fullNameElement.value,
+        email: emailElement.value,
+        phoneNumber: phoneNumberElement.value,
+        message: messageElement.value,
+      };
 
-    if (
-      formData.fullName === "" ||
-      formData.email === "" ||
-      formData.phoneNumber === ""
-    )
-      return (messageError = errorMessageElement.innerHTML =
-        `<div class="error-message" style="border-radius: 1em;
+      if (
+        formData.fullName === "" ||
+        formData.email === "" ||
+        formData.phoneNumber === ""
+      )
+        return (messageError = errorMessageElement.innerHTML =
+          `<div class="error-message" style="border-radius: 1em;
       padding: 0.3em 1em;
       background: rgba(236, 11, 11, 0.22);
       width: auto;
@@ -59,25 +60,25 @@
         formData.phoneNumber === "" ? "Teléfono" : ""
       }</div>`);
 
-    const contact = mapContactData(formData);
+      const contact = mapContactData(formData);
 
-    const response = await fetch(
-      `https://api-servitecsales.web.app/emails/contact`,
-      {
-        method: "POST",
-        headers: {
-          "content-Type": "application/json",
-          Accept: "application/json",
+      const response = await fetch(
+        `https://api-servitecsales.web.app/emails/contact`,
+        {
+          method: "POST",
+          headers: {
+            "content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(contact),
         },
-        body: JSON.stringify(contact),
-      },
-    );
+      );
 
-    if (!response.ok) throw new Error(response.statusText);
+      if (!response.ok) throw new Error(response.statusText);
 
-    reset();
-    window.location.href = "/success";
-  });
+      reset();
+      window.location.href = "/success";
+    });
 </script>
 
 <div class="form-container">
