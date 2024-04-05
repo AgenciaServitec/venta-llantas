@@ -1,0 +1,107 @@
+---
+const brands = [
+  {
+    name: "AEOLUS",
+    imageUrl: "./images/logo-aelus.webp",
+  },
+  {
+    name: "BRIDGESTONE",
+    imageUrl: "./images/logo-bridgestone.webp",
+  },
+  {
+    name: "CONTINENTAL",
+    imageUrl: "./images/continental.webp",
+  },
+  {
+    name: "DELINTE",
+    imageUrl: "./images/delinte.webp",
+  },
+  {
+    name: "DUNLOP TIRES",
+    imageUrl: "./images/dunlop.webp",
+  },
+  {
+    name: "FALKEN",
+    imageUrl: "./images/falken.webp",
+  },
+  {
+    name: "FEDERAL",
+    imageUrl: "./images/federal.webp",
+  },
+  {
+    name: "FIRESTONE",
+    imageUrl: "./images/firestone.webp",
+  },
+  {
+    name: "GENERAL TIRE",
+    imageUrl: "./images/general-tire.webp",
+  },
+  {
+    name: "GOODYEAR",
+    imageUrl: "./images/good-year.webp",
+  },
+  {
+    name: "GT RADIAL",
+    imageUrl: "./images/gt-radial.webp",
+  },
+  {
+    name: "KUMHO TIRE",
+    imageUrl: "./images/kumho-tyre.webp",
+  },
+  {
+    name: "TOYO TIRES",
+    imageUrl: "./images/toyo-tires.webp",
+  },
+  {
+    name: "TRIANGLE",
+    imageUrl: "./images/triangle.webp",
+  },
+  {
+    name: "WESTLAKE",
+    imageUrl: "./images/west-lake.webp",
+  },
+  {
+    name: "YOKOHAMA",
+    imageUrl: "./images/yokohama.webp",
+  },
+];
+---
+
+<div class="brands-wrapper">
+  <ul class="brands">
+    {
+      brands.map((brand, index) => (
+        <li key={index} class="brand">
+          <img src={brand.imageUrl} alt={brand.name} />
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style lang="scss">
+  .brands-wrapper {
+    padding: 3em 1em 1em 1em;
+    .brands {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 1em;
+      max-width: 100%;
+      overflow-x: scroll;
+      .brand {
+        background: #fff;
+        border-radius: 1em;
+        padding: 0.2em 1em;
+        display: flex;
+        place-items: center;
+        img {
+          width: 8em;
+          margin: auto;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+</style>

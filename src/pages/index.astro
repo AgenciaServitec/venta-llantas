@@ -9,6 +9,7 @@ import {
   Button,
   AboutUsComponent,
 } from "../components";
+import BrandsSection from "../components/home/BrandsSection.astro";
 ---
 
 <BaseLayout>
@@ -40,64 +41,65 @@ import {
     </SectionWrapper>
 
     <SectionWrapper>
+      <BrandsSection />
       <MapLocation />
     </SectionWrapper>
   </main>
-</BaseLayout>
 
-<style lang="scss">
-  //MOBILE AND TABLET
-  main {
-    .banner-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      width: 100%;
-      min-height: 70vh;
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        position: absolute;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 100;
-      }
-      .wrapper-content {
-        width: 90%;
-        margin: auto;
-        color: #fff;
-        text-transform: uppercase;
+  <style lang="scss">
+    //MOBILE AND TABLET
+    main {
+      .banner-wrapper {
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
-        z-index: 200;
-        @media (min-width: 920px) {
-          width: 60%;
+        position: relative;
+        width: 100%;
+        min-height: 70vh;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          position: absolute;
+          left: 0;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 100;
         }
-        .quote-wrapper {
-          padding: 2em 0 0 0;
-          a {
-            text-decoration: auto;
+        .wrapper-content {
+          width: 90%;
+          margin: auto;
+          color: #fff;
+          text-transform: uppercase;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          z-index: 200;
+          @media (min-width: 920px) {
+            width: 60%;
+          }
+          .quote-wrapper {
+            padding: 2em 0 0 0;
+            a {
+              text-decoration: auto;
+            }
           }
         }
       }
     }
-  }
 
-  //DESKTOP
-  @media (min-width: 920px) {
-    main {
-      .banner-wrapper {
-        img {
-          width: 100%;
-          height: 70vh;
+    //DESKTOP
+    @media (min-width: 920px) {
+      main {
+        .banner-wrapper {
+          img {
+            width: 100%;
+            height: 70vh;
+          }
         }
       }
     }
-  }
-</style>
+  </style>
+</BaseLayout>
