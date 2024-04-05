@@ -1,0 +1,58 @@
+---
+import Icon from "astro-icon";
+---
+
+<div>
+  <a
+    href="https://api.whatsapp.com/send?phone=981387871&text=Me%20interesa%20saber%20más%20sobre%20el%20precio%20de%20sus%20productos"
+    target="_blank"
+    rel="noreferrer"
+  >
+    <button>
+      <div class="item-icon">
+        <Icon pack="mdi" name="whatsapp" size={40} />
+      </div>
+      <div class="item-text">
+        <div>Servicio Whatsapp</div>
+        <div>981387871</div>
+      </div>
+    </button>
+  </a>
+</div>
+
+<style lang="scss">
+  a {
+    position: fixed;
+    right: 0;
+    bottom: 0.8rem;
+    z-index: 998;
+    text-decoration: none;
+  }
+
+  button {
+    background: #5cc753;
+    padding: 0.5rem 0.8rem;
+    border: none;
+    margin-bottom: 2rem;
+    height: auto;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 7rem;
+    border-bottom-left-radius: 7rem;
+    .item-icon {
+      color: #fff;
+    }
+    .item-text {
+      font-size: 1rem;
+      color: #fff;
+      div {
+        line-height: 1.5rem;
+      }
+      div:last-child {
+        font-size: 1.5rem;
+      }
+    }
+  }
+</style>
