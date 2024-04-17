@@ -1,0 +1,53 @@
+---
+import Icon from "astro-icon";
+---
+
+<div>
+  <a href="tel:981387871" target="_blank" rel="noreferrer">
+    <button>
+      <div class="item-text">
+        <div>Contáctanos</div>
+        <div>981387871</div>
+      </div>
+      <div class="item-icon">
+        <Icon pack="mdi" name="call" size={30} />
+      </div>
+    </button>
+  </a>
+</div>
+
+<style lang="scss">
+  a {
+    position: fixed;
+    right: left;
+    bottom: 14rem;
+    z-index: 998;
+    text-decoration: none;
+  }
+
+  button {
+    background: #1a1a1a;
+    padding: 0.2rem 0.8rem;
+    border: none;
+    height: auto;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 7rem;
+    border-bottom-right-radius: 7rem;
+    .item-icon {
+      color: #fff;
+    }
+    .item-text {
+      font-size: .8rem;
+      color: #fff;
+      div {
+        line-height: 1.5rem;
+      }
+      div:last-child {
+        font-size: 1rem;
+      }
+    }
+  }
+</style>

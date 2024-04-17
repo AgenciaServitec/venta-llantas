@@ -3,6 +3,7 @@ import { ViewTransitions } from "astro:transitions";
 import Footer from "./Footer.astro";
 import Header from "./Header.astro";
 import { ButtonFloating } from "../components";
+import { CallButton } from "../components";
 
 interface Props {
   title: string;
@@ -61,6 +62,7 @@ const {
         <slot />
       </div>
       <ButtonFloating />
+      <CallButton />
       <Footer />
     </div>
     <style is:global lang="scss">

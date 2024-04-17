@@ -13,3 +13,4 @@ export { default as CardProduct } from "./CardProduct.astro";
 export { default as SectionWrapper } from "./SectionWrapper.astro";
 export { default as Divider } from "./Divider.astro";
 export { default as ButtonFloating } from "./ButtonFloating.astro";
+export { default as CallButton } from "./CallButton.astro";
