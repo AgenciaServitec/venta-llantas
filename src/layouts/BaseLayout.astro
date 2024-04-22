@@ -48,86 +48,74 @@ const {
 
     <!-- Smartsupp Live Chat script -->
     <script type="text/javascript">
-      var _smartsupp = _smartsupp || {};
-      _smartsupp.key = "7cc2193e2b15896421590ff66a5f703dfe06ef11";
-      window.smartsupp ||
-        (function (d) {
-          var s,
-            c,
-            o = (smartsupp = function () {
-              o._.push(arguments);
-            });
-          o._ = [];
-          s = d.getElementsByTagName("script")[0];
-          c = d.createElement("script");
-          c.type = "text/javascript";
-          c.charset = "utf-8";
-          c.async = true;
-          c.src = "https://www.smartsuppchat.com/loader.js?";
-          s.parentNode.insertBefore(c, s);
-        })(document);
+      var _smartsupp = _smartsupp || {}; 
+      _smartsupp.key = '7cc2193e2b15896421590ff66a5f703dfe06ef11';
+      window.smartsupp||(function(d) {
+      var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+      s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+      c.type='text/javascript';c.charset='utf-8';c.async=true;
+      c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+      })(document);
     </script>
-    <noscript></noscript>
-  </head>Powered by <a href="“https://www.smartsupp.com”" target="“_blank”"
-    >Smartsupp</a
-  >
+    <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
 
-  <ViewTransitions />
-</html>
-<body>
-  <div class="general-wrapper">
-    <Header />
-    <div class="main">
-      <slot />
+    <ViewTransitions />
+  </head>
+  <body>
+    <div class="general-wrapper">
+      <Header />
+      <div class="main">
+        <slot />
+      </div>
+      <ButtonFloating />
+      <CallButton />
+      <Footer />
     </div>
-    <ButtonFloating />
-    <CallButton />
-    <Footer />
-  </div>
-  <style is:global lang="scss">
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      font-family: system-ui, sans-serif;
-      background: rgb(5, 5, 5);
-      color: #fff;
-    }
-
-    body {
-      margin: 0;
-      font-size: 16px;
-      overflow-x: hidden;
-    }
-
-    .general-wrapper {
-      max-width: 1530px;
-      margin: auto;
-      position: relative;
-      background: #13151a;
-    }
-
-    .main {
-      width: 100%;
-      height: auto;
-    }
-
-    .color {
-      &__primary {
-        color: #f40f0f;
+    <style is:global lang="scss">
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
-      &__secondary {
-        color: #0c0c0ccc;
-      }
-      &__white {
+
+      html {
+        font-family: system-ui, sans-serif;
+        background: rgb(5, 5, 5);
         color: #fff;
       }
-      &__black {
-        color: #000;
+
+      body {
+        margin: 0;
+        font-size: 16px;
+        overflow-x: hidden;
       }
-    }
-  </style>
-</body>
+
+      .general-wrapper {
+        max-width: 1530px;
+        margin: auto;
+        position: relative;
+        background: #13151a;
+      }
+
+      .main {
+        width: 100%;
+        height: auto;
+      }
+
+      .color {
+        &__primary {
+          color: #f40f0f;
+        }
+        &__secondary {
+          color: #0c0c0ccc;
+        }
+        &__white {
+          color: #fff;
+        }
+        &__black {
+          color: #000;
+        }
+      }
+    </style>
+  </body>
+</html>
