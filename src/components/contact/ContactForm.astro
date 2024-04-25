@@ -1,0 +1,76 @@
+---
+const { errors } = Astro.props;
+---
+
+<form method="post" class="form-container">
+  <div class="item-wrapper">
+    <label for="fullName">Nombres y apellidos</label>
+    <input type="text" id="fullName" name="fullName" />
+    {errors.fullName && <p>{errors.fullName}</p>}
+  </div>
+  <div class="item-wrapper">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" />
+    {errors.email && <p>{errors.email}</p>}
+  </div>
+  <div class="item-wrapper">
+    <label for="phoneNumber">Teléfono</label>
+    <input type="text" id="phoneNumber" name="phoneNumber" />
+    {errors.phoneNumber && <p>{errors.phoneNumber}</p>}
+  </div>
+  <div class="item-wrapper">
+    <label for="message">Mensaje</label>
+    <textarea id="message" name="message" cols="30" rows="4"></textarea>
+    {errors.message && <p>{errors.message}</p>}
+  </div>
+  <button class="btn-submit" id="btn-submit">Enviar</button>
+</form>
+
+<style lang="scss">
+  .form-container {
+
+    .error-item {
+      border: 1px solid red;
+    }
+
+    .item-wrapper {
+      margin-bottom: 1em;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      label {
+        font-size: 0.8em;
+        margin-bottom: 0.5em;
+      }
+      input,
+      textarea {
+        width: 100%;
+        border-radius: 0.5em;
+        font-size: 1.1em;
+        padding: 0.6em;
+        border-color: transparent;
+        outline: none;
+      }
+
+      p {
+        font-size: 0.7em;
+        color: red;
+      }
+    }
+
+    .btn-submit {
+      grid-column: span 2;
+      margin: 0 auto;
+      font-size: 1.2em;
+      text-transform: upperCase;
+      font-style: italic;
+      background-color: red;
+      color: #fff;
+      padding: 1em;
+      border-radius: 7em;
+      width: 100%;
+      border-color: transparent;
+      cursor: pointer;
+    }
+  }
+</style>
