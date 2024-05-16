@@ -1,5 +1,8 @@
 ---
-const { errors } = Astro.props;
+import { Icon } from "astro-icon";
+
+const { errors, loading } = Astro.props;
+console.log("Loading: ",loading);
 ---
 
 <form method="post" class="form-container">
@@ -23,12 +26,20 @@ const { errors } = Astro.props;
     <textarea id="message" name="message" cols="30" rows="4"></textarea>
     {errors.message && <p>{errors.message}</p>}
   </div>
-  <button class="btn-submit" id="btn-submit">Enviar</button>
+  <button
+    class={`btn-submit ${loading && "disabled"}`}
+    id="btn-submit"
+    disabled={loading}
+  >
+  {
+    loading && <Icon name="ei:spinner-3" class="infinite-rotate" size={35} />
+  }
+    Enviar
+  </button>
 </form>
 
 <style lang="scss">
   .form-container {
-
     .error-item {
       border: 1px solid red;
     }
@@ -58,6 +69,19 @@ const { errors } = Astro.props;
       }
     }
 
+    .infinite-rotate {
+      animation: infiniteRotate 0.6s infinite;
+    }
+
+    @keyframes infiniteRotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
     .btn-submit {
       grid-column: span 2;
       margin: 0 auto;
@@ -71,6 +95,14 @@ const { errors } = Astro.props;
       width: 100%;
       border-color: transparent;
       cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .disabled {
+      background-color: rgb(170, 38, 38);
+      pointer-events: none;
     }
   }
 </style>

@@ -3,6 +3,7 @@ import { ContactForm } from "../../components";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const errors = { fullName: "", email: "", phoneNumber: "", message: "" };
+const loading = { isActive: false };
 
 const validateField = (value, label, name) => {
   if (name === "message") return;
@@ -13,6 +14,7 @@ const validateField = (value, label, name) => {
 
 if (Astro.request.method === "POST") {
   try {
+    loading["isActive"] = true;
     const data = await Astro.request.formData();
 
     const formData = [
@@ -57,7 +59,7 @@ if (Astro.request.method === "POST") {
           number: formData?.[2].value || "",
         },
         message: formData?.[3].value || "",
-        hostname: "venta-llantas.com",
+        hostname: "mifanllantas.com",
       },
     });
 
@@ -70,8 +72,13 @@ if (Astro.request.method === "POST") {
       body: JSON.stringify(mapContact(formData)),
     });
 
+    setTimeout(() => {
+      loading["isActive"] = false;
+    }, 3000);
+    
     return Astro.redirect("/success");
   } catch (error) {
+    loading["isActive"] = false;
     if (error instanceof Error) {
       console.error("Error:", error.message);
     }
@@ -84,7 +91,7 @@ if (Astro.request.method === "POST") {
     <div class="error-message-wrapper" id="error-message-wrapper"></div>
     <section>
       <span>Contacto</span>
-      <ContactForm errors={errors} />
+      <ContactForm errors={errors} loading={loading.isActive} />
     </section>
   </main>
 </BaseLayout>
